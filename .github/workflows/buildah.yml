@@ -58,5 +58,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: build manual
       run: |
-        apt-get install buildah=1.19.8
+        sudo apt-get update
+        sudo apt-get -y install buildah=1.19.8
         buildah bud -t test .
