@@ -6,9 +6,22 @@ on:
       - 'master'
 
 jobs:
-  build:
+  build2:
     name: Build Dockerfile
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build image
+      uses: redhat-actions/buildah-build@v2
+      with:
+        image: test
+        tags: latest
+        dockerfiles: |
+          ./Dockerfile
+  build1:
+    name: Build Dockerfile
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
 
