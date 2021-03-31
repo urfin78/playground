@@ -59,5 +59,6 @@ jobs:
     - name: build manual
       run: |
         sudo apt-get update
+        apt-cache madison buildah
         sudo apt-get -y install buildah=1.19.8
         buildah bud -t test .
