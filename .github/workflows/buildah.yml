@@ -25,7 +25,7 @@ jobs:
           ./Dockerfile
 
   build2004:
-    name: Build Dockerfile Ubuntu 20.04
+    name: Build Dockerfile manual Ubuntu 20.04
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
@@ -42,18 +42,18 @@ jobs:
         dockerfiles: |
           ./Dockerfile
 
-  build2004-manual:
-    name: Build Dockerfile Ubuntu 20.04
-    runs-on: ubuntu-20.04
+  build1804-manual:
+    name: Build Dockerfile manual Ubuntu 18.04
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
     - name: build manual
       run: |
         buildah bud -t test .
 
-  build1804-manual:
-    name: Build Dockerfile Ubuntu 18.04
-    runs-on: ubuntu-18.04
+  build2004-manual:
+    name: Build Dockerfile manual Ubuntu 20.04
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: build manual
