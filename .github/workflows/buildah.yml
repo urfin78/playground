@@ -6,7 +6,7 @@ on:
       - 'master'
 
 jobs:
-    name: Build Dockerfile
+  name: Build Dockerfile
     runs-on: ubuntu-latest
     strategy:
     steps:
