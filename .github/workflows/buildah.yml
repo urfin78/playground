@@ -1,0 +1,21 @@
+name: Buildah build
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+    name: Build Dockerfile
+    runs-on: ubuntu-latest
+    strategy:
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build image
+      uses: redhat-actions/buildah-build@v2
+      with:
+        image: test
+        tags: latest
+        dockerfiles: |
+          ./Dockerfile
