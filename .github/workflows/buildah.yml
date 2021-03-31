@@ -41,3 +41,21 @@ jobs:
         tags: latest
         dockerfiles: |
           ./Dockerfile
+
+  build2004-manual:
+    name: Build Dockerfile Ubuntu 20.04
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: build manual
+      run: |
+        buildah bud -t test .
+
+  build1804-manual:
+    name: Build Dockerfile Ubuntu 18.04
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: build manual
+      run: |
+        buildah bud -t test .
