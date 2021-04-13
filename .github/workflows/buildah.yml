@@ -12,7 +12,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch: [arm, amd64]
+        arch: [arm, amd64, 386, arm64]
+        variant: ['', v6, v7]
+        exclude:
+          arch: [amd64, arm64, 386]
+          variant: [v6, v7]
+
 
     steps:
     - uses: actions/checkout@v2
@@ -30,5 +35,4 @@ jobs:
         dockerfiles: |
           ./Dockerfile
         extra-args: |
-          --variant=v7
-        if: ${{ matrix.arch == 'arm' }}
+          --variant=${{ matrix.variant }}
