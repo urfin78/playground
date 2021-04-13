@@ -12,13 +12,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch: [arm, amd64, 386, arm64]
-        variant: ['', v6, v7]
-        exclude:
-          arch: [amd64, arm64, 386]
-          variant: [v6, v7]
-
-
+        include:
+          - { arch: arm, variant: v6 }
+          - { arch: arm, variant: v7 }
+          - { arch: amd64, variant: '' }
+          - { arch: 386, variant: '' }
+          - { arch: aem64, variant: '' }
     steps:
     - uses: actions/checkout@v2
 
