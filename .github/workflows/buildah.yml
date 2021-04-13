@@ -31,4 +31,4 @@ jobs:
           ./Dockerfile
         extra-args: |
           --variant=v7
-        if: ${{ matrix.arch == arm }}
+        if: ${{ matrix.arch == 'arm' }}
