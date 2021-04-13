@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch: [armv7, arm32v6, arm32v7]
+        arch: [arm, amd64]
 
     steps:
     - uses: actions/checkout@v2
@@ -29,3 +29,6 @@ jobs:
         tags: latest-${{ matrix.arch }}
         dockerfiles: |
           ./Dockerfile
+        extra-args: |
+          --variant=v7
+        if: ${{ matrix.arch == arm }}
